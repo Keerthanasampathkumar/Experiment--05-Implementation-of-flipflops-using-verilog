@@ -102,39 +102,108 @@ Q(t+1)=T′Q(t)+TQ(t)′
 ⇒Q(t+1)=T⊕Q(t)
 
 ### Procedure
-/* write all the steps invloved */
+```
+Step-1
+Open Quartus II and select new project and choose the file location.
 
+Step-2
+Module Declaration. Module should have the file name.
 
+Step-3
+Declare Inputs and outputs.
 
+Step-4
+Use assign declaration and wire to define the functionality of logic circuits.
+
+Step-5
+End the program with endmodule.
+
+Step-6
+Run the program and choose RTL viewer to get RTL realization.
+
+```
 ### PROGRAM 
 /*
 Program for flipflops  and verify its truth table in quartus using Verilog programming.
-Developed by: 
-RegisterNumber:  
+Developed by: KEERTHANA S
+RegisterNumber: 212222230066
 */
+```
+i) SR FLIP FLOP:
 
+module S(S,R,Clock,Q,Qbar);
+input S,R,Clock;
+output Q,Qbar;
+wire X,Y;
+nand (X,S,Clock);
+nand (Y,R,Clock);
+nand (Q,X,Qbar);
+nand(Qbar,Y,Q);
+endmodule
 
+ii) D FLIP FLOP:
 
+module D(D,Clock,Q,Qbar);
+input D,Clock;
+output Q,Qbar;
+assign Dbar = ~D;
+wire X,Y;
+nand (X,D,Clock);
+nand (Y,Dbar,Clock);
+nand (Q,X,Qbar);
+nand (Qbar,Y,Q);
+endmodule
 
+iii) JK FLIP FLOP:
 
+module JK(J,K,Clock,Q,Qbar);
+input J,K,Clock;
+output Q,Qbar;
+wire P,S;
+nand (P,J,Clock,Qbar);
+nand (S,K,Clock,Q);
+nand (Q,P,Qbar);
+nand (Qbar,S,Q);
+endmodule
+
+iv) T FLIP FLOP:
+
+module T (T,Clock,Q,Qbar);
+input T,Clock;
+output Q,Qbar;
+wire A,B;
+nand (A,T,Clock,Qbar);
+nand (B,T,Clock,Q);
+nand (Q,A,Qbar);
+nand (Qbar,B,Q);
+endmodule
+```
 
 ### RTL LOGIC FOR FLIPFLOPS 
+### SR FLIP FLOP:
+![sr ff](https://github.com/Keerthanasampathkumar/Experiment--05-Implementation-of-flipflops-using-verilog/assets/119477890/ee62e18c-e642-4830-9bcd-bd06200386bc)
+
+### D FLIP FLOP:
+![Uploading d ff.jpg…]()
 
 
+### JK FLIP FLOP:
 
 
-
-
-
+### T FLIP FLOP:
+![t ff](https://github.com/Keerthanasampathkumar/Experiment--05-Implementation-of-flipflops-using-verilog/assets/119477890/cad5d546-3507-4372-8cb7-3fec7f8fb64a)
 
 
 ### TIMING DIGRAMS FOR FLIP FLOPS 
+### SR FLIP FLOP:
+
+
+![sh 11](https://github.com/Keerthanasampathkumar/Experiment--05-Implementation-of-flipflops-using-verilog/assets/119477890/4af5a146-9590-4d0b-987e-0a23e7108c97)
 
 
 
 
-
-
+![Uploading d 11.jpg…]()
 
 
 ### RESULTS 
